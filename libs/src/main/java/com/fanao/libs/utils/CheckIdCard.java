@@ -7,7 +7,6 @@ import java.util.Date;
 /**
  * 验证身份证号码 身份证号码, 可以解析身份证号码的各个字段，以及验证身份证号码是否有效; 
  * 身份证号码构成：6位地址编码+8位生日+3位顺序码+1位校验码
- * 
  */
 public class CheckIdCard {
 	private String cardNumber; // 完整的身份证号码
@@ -22,8 +21,6 @@ public class CheckIdCard {
 	
 	/**
 	 * 验证身份证
-	 * 
-	 * @return
 	 */
 	public boolean validate() {
 		if (null == cacheValidateResult) {
@@ -56,7 +53,7 @@ public class CheckIdCard {
 		   } catch (Exception e) {
 			   result = false;
 		   }
-		   cacheValidateResult = Boolean.valueOf(result);// TODO
+		   cacheValidateResult = Boolean.valueOf(result);
 	               // 完整身份证号码的省市县区检验规则
 		}
 		
@@ -65,9 +62,6 @@ public class CheckIdCard {
 	
 	/**
 	 * 如果是15位身份证号码，则自动转换为18位
-	 * 
-	 * @param cardNumber
-	 * @return 
 	 */
 	 public CheckIdCard(String cardNumber) {
 		 if (null != cardNumber) {
@@ -81,8 +75,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 获取身份证号
-	  * 
-	  * @return
 	  */
 	 public String getCardNumber() {
 		 return cardNumber;
@@ -90,8 +82,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 获取身份证所在地区编号
-	  * 
-	  * @return
 	  */
 	 public String getAddressCode() {
 		 this.checkIfValid();
@@ -100,8 +90,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 获取出生日期
-	  * 
-	  * @return
 	  */
 	 public Date getBirthDate() {
 		 if (null == this.cacheBirthDate) {
@@ -116,8 +104,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 身证号码为男性
-	  * 
-	  * @return
 	  */
 	 public boolean isMale() {
 		 return 1 == this.getGenderCode();
@@ -125,8 +111,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 身证号码为女性
-	  * 
-	  * @return
 	  */
 	 public boolean isFemal() {
 		 return false == this.isMale();
@@ -134,8 +118,6 @@ public class CheckIdCard {
 	 
 	 /**
 	  * 获取身份证的第17位，奇数为男性，偶数为女性
-	  * 
-	  * @return
 	  */
 	 private int getGenderCode() {
 		 this.checkIfValid();
@@ -164,9 +146,6 @@ public class CheckIdCard {
 	  * Ai:表示第i位置上的身份证号码数字值 Wi:表示第i位置上的加权因子 Wi: 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4
 	  * 2; 计算模 Y = mod(S, 11)< 通过模得到对应的校验码 Y: 0 1 2 3 4 5 6 7 8 9 10 校验码: 1 0 X 9
 	  * 8 7 6 5 4 3 2
-	  * 
-	  * @param cardNumber
-	  * @return
 	  */
 	 private static char calculateVerifyCode(CharSequence cardNumber) {
 		 int sum = 0;
@@ -182,9 +161,6 @@ public class CheckIdCard {
 	  * 15位身份证号码与18位身份证号码的区别为：<br>
 	  * 1、15位身份证号码中，"出生年份"字段是2位，转换时需要补入"19"，表示20世纪<br>
 	  * 2、15位身份证无最后一位校验码。18位身份证中，校验码根据根据前17位生成
-	  * 
-	  * @param oldCardNumber
-	  * @return
 	  */
 	 private static String contertToNewCardNumber(String oldCardNumber) {
 		 StringBuilder buf = new StringBuilder(NEW_CARD_NUMBER_LENGTH);

@@ -31,10 +31,12 @@ import org.json.JSONObject;
  */
 public class AppUtils {
 	 private static final String SHORTCUT_INSTALL = "com.android.launcher.action.INSTALL_SHORTCUT";
-	 
-	 /**
+
+	/**
      * 创建快捷方式
-     * 
+     *
+	 * @param act
+	 * 			上下文
      * @param iconResId
      *            快捷方式的图片
      * @param appNameResId
@@ -67,9 +69,6 @@ public class AppUtils {
     
     /**
      * 获取AndroidManifest.xml渠道号
-     * 
-     * @param context
-     * @return
      */
     public static String getChannel(Context context) {
     	ApplicationInfo appInfo = null;
@@ -99,9 +98,6 @@ public class AppUtils {
     
     /**
      * 生成设备唯一标识码
-     * 
-     * @param context
-     * @return
      */
     public static String getDeviceId(Context context) {
     	TelephonyManager telMana = null;
@@ -150,9 +146,6 @@ public class AppUtils {
 
     /**
 	 * 友盟集成测试，获取设备信息
-	 * 
-	 * @param context
-	 * @return
 	 */
 	@Nullable
 	public static String getDeviceInfo(Context context) {
@@ -187,9 +180,6 @@ public class AppUtils {
 
 	/**
 	 * 获取App版本号
-	 *
-	 * @param context
-	 * @return
      */
 	public static String getAppVersionName(Context context) {
 		String packageName = null;

@@ -1,4 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'lgt666'
+    groupId = 'com.lgt666'
+    artifactId = 'fanao-libs'
+    publishVersion = '1.0.0'
+    desc = 'fanao library'
+    website = 'https://github.com/lgt666/FanaoLibs'
+}
 
 android {
     compileSdkVersion 23
@@ -15,6 +25,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+allprojects {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
     }
 }
 

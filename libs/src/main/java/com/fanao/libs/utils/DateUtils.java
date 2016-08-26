@@ -31,7 +31,7 @@ public class DateUtils {
 	/**
 	  * 获取现在时间
 	  * 
-	  * @return返回短时间格式 yyyy-MM-dd
+	  * @return 返回短时间格式 yyyy-MM-dd
 	  */
 	 public static Date getNowDateShort() {
 		 Date currentTime = new Date();
@@ -46,7 +46,7 @@ public class DateUtils {
 	 /**
 	  * 获取现在时间
 	  * 
-	  * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
+	  * @return 返回字符串格式 yyyy-MM-dd HH:mm:ss
 	  */
 	 public static String getStringDate() {
 	  Date currentTime = new Date();
@@ -58,7 +58,7 @@ public class DateUtils {
 	 /**
 	  * 获取现在时间
 	  * 
-	  * @return返回字符串格式 MM-dd HH:mm
+	  * @return 返回字符串格式 MM-dd HH:mm
 	  */
 	 public static String getStringDate2() {
 	  Date currentTime = new Date();
@@ -81,8 +81,6 @@ public class DateUtils {
 	 
 	 /**
 	  * 获取时间 小时:分;秒 HH:mm:ss
-	  * 
-	  * @return
 	  */
 	 public static String getTimeShort() {
 	  SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
@@ -93,9 +91,6 @@ public class DateUtils {
 	 
 	 /**
 	  * 将长时间格式字符串转换为时间 yyyy-MM-dd HH:mm:ss
-	  * 
-	  * @param strDate
-	  * @return
 	  */
 	 public static Date strToDateLong(String strDate) {
 	  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -106,9 +101,6 @@ public class DateUtils {
 	 
 	 /**
 	  * 将长时间格式时间转换为字符串 yyyy-MM-dd HH:mm:ss
-	  * 
-	  * @param dateDate
-	  * @return
 	  */
 	 public static String dateToStrLong(Date dateDate) {
 	  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -118,9 +110,6 @@ public class DateUtils {
 
 	 /**
 	  * 将短时间格式时间转换为字符串 yyyy-MM-dd
-	  *
-	  * @param dateDate
-	  * @return
 	  */
 	 public static String dateToStr(Date dateDate) {
 	  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -130,9 +119,6 @@ public class DateUtils {
 
 	 /**
 	  * 将短时间格式字符串转换为时间 yyyy-MM-dd
-	  *
-	  * @param strDate
-	  * @return
 	  */
 	 public static Date strToDate(String strDate) {
 	  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -143,8 +129,6 @@ public class DateUtils {
 
 	 /**
 	  * 得到现在时间
-	  *
-	  * @return
 	  */
 	 public static Date getNow() {
 	  Date currentTime = new Date();
@@ -153,9 +137,6 @@ public class DateUtils {
 
 	 /**
 	  * 提取一个月中的最后一天
-	  *
-	  * @param day
-	  * @return
 	  */
 	 public static Date getLastDate(long day) {
 	  Date date = new Date();
@@ -190,8 +171,6 @@ public class DateUtils {
 
 	 /**
 	  * 得到现在分钟
-	  *
-	  * @return
 	  */
 	 public static String getTime() {
 	  Date currentTime = new Date();
@@ -207,7 +186,6 @@ public class DateUtils {
 	  *
 	  * @param sformat
 	  *            yyyyMMddhhmmss
-	  * @return
 	  */
 	 public static String getUserDate(String sformat) {
 	  Date currentTime = new Date();
@@ -290,12 +268,9 @@ public class DateUtils {
 	  * 
 	  *  详细设计： 1.被400整除是闰年，否则： 2.不能被4整除则不是闰年 3.能被4整除同时不能被100整除则是闰年
 	  * 3.能被4整除同时能被100整除则不是闰年
-	  * 
-	  * @param ddate
-	  * @return
 	  */
-	 public static boolean isLeapYear(String ddate) {
-	  Date d = strToDate(ddate);
+	 public static boolean isLeapYear(String date) {
+	  Date d = strToDate(date);
 	  GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
 	  gc.setTime(d);
 	  int year = gc.get(Calendar.YEAR);
@@ -312,9 +287,6 @@ public class DateUtils {
 	 
 	 /**
 	  * 返回美国时间格式 26 Apr 2006
-	  * 
-	  * @param str
-	  * @return
 	  */
 	 public static String getEDate(String str) {
 		  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -329,7 +301,6 @@ public class DateUtils {
 	 * 通过时间戳获取格式化后的时间
 	 *
 	 * @param timestamp 此时间戳乘以1000L原因是PHP的, 所以Java返回的时间戳时要去除.
-	 * @return
      */
 	public static String getFormatDate(long timestamp) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -343,7 +314,7 @@ public class DateUtils {
 	 *
 	 * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
 	 * @param pattern 输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
-	 *                <p/>如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
+	 *                如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
 	 * @return time为null，或者时间格式不匹配，输出空字符""
 	 */
 	public static String formatDisplayTime(String time, String pattern) {
@@ -391,9 +362,6 @@ public class DateUtils {
 
 	/**
 	 * 返回人性化的时间显示格式
-	 *
-	 * @param ctime Date
-	 * @return
 	 */
 	public static String showTime(Date ctime) {
 		String r = "";
