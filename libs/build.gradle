@@ -5,7 +5,7 @@ publish {
     userOrg = 'lgt666'
     groupId = 'com.lgt666'
     artifactId = 'fanao-libs'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'fanao library'
     website = 'https://github.com/lgt666/FanaoLibs'
 }
