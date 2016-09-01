@@ -15,11 +15,6 @@ import javax.crypto.Cipher;
 public class Rsa {
     private static final String ALGORITHM = "RSA";
 
-    /**
-     * 用于与sdk server间数据通信的rsa key
-     */
-    private static final String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC2u28fXJL/NCJLY7OI1oRTvY26nOOpUUDG2l+FRF+Y/YcvaqYiZphMKsoUDZZGUvIc5V6X7H8IVLD1psGSmbl2bNIoca40/vS8nZMFkxQ60kpDYtqzwdPMj1JkbYoc1Ido7ZetfgKelvShNNLssMKSw2VRnzrh2Zif2QEoKoap/QIDAQAB";
-
     private static PublicKey getPublicKeyFromX509(String algorithm, String bysKey) throws NoSuchAlgorithmException, Exception {
         byte[] decodedKey = Base64.decode(bysKey);
         X509EncodedKeySpec x509 = new X509EncodedKeySpec(decodedKey);
@@ -34,7 +29,7 @@ public class Rsa {
      * @param content
      * @return
      */
-    public static String encrypt(String content) {
+    public static String encrypt(String content, String publicKey) {
         try {
             PublicKey pubkey = getPublicKeyFromX509(ALGORITHM, publicKey);
 
@@ -58,7 +53,7 @@ public class Rsa {
      * @param content
      * @return
      */
-    public static String decrypt(String content) {
+    public static String decrypt(String content, String publicKey) {
         try {
             PublicKey prikey = getPublicKeyFromX509(ALGORITHM, publicKey);
 
